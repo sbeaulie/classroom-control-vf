@@ -52,6 +52,6 @@ node default {
   #  comment => "lab 7.3",
   #  ip => "127.0.0.1"
   #}
-  include users
-  include skeleton
+  #include users
+  #include skeleton
 }
