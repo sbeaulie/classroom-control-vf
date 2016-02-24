@@ -1,11 +1,4 @@
-class nginx {
-
-case $operatingsystem {
-  'RedHat', 'CentOS': { include nginx::redhat  } # apply the redhat vars
-  /^(Debian|Ubuntu)$/:{ include nginx::debian  } # apply the debian vars
-  'Windows':          { include nginx::windows  } # apply the windows vars
-  default:            { fail("cannot process ERB variables for ${operatingsystem}")  } #fail otherwise
-}
+class nginx inherits nginx::params{
 
 package { 'nginx':
   ensure => present,
