@@ -1,6 +1,6 @@
 define users::managed_user (
-  $user => $title,
-  $group => $title
+  $user = $title,
+  $group = 'admin'
 ) {
   user { $user:
     ensure => present,
