@@ -1,6 +1,6 @@
 class nginx inherits nginx::params{
 
-package { 'nginx':
+package { $ng_package:
   ensure => present,
 }
 
@@ -10,23 +10,23 @@ service { 'nginx':
 }
 
 File{
- owner => '0',
- group => '0',
+ owner => $ng_owner,
+ group => $ng_group,
  mode => '0644'
 }
 
-file { '/var/www' :
+file { $doc_root :
 ensure => directory
 }
 
-file { '/etc/nginx/nginx.conf':
+file { "${conf_dir}nginx.conf":
   ensure  => file,
   #source  => 'puppet:///modules/nginx/nginx.conf',
   content => template('nginx/nginx.conf.erb'),
   require => Package['nginx'],
 }
 
-file { '/etc/nginx/conf.d/default.conf': 
+file { "${server_dir}default.conf": 
   ensure  => file,
   #source  => 'puppet:///modules/nginx/default.conf',
   content => template('nginx/default.conf.erb'),
@@ -34,7 +34,7 @@ file { '/etc/nginx/conf.d/default.conf':
 }
 
 
-file { '/var/www/index.html': 
+file { "${doc_root}index.html": 
   ensure  => file,
   source  => 'puppet:///modules/nginx/index.html',
   require => Package['nginx'],
