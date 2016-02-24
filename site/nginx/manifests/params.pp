@@ -22,7 +22,7 @@ case $operatingsystem {
     $ng_owner = 'root'
     $ng_group = 'root'
   } # apply the debian vars
-  'Windows':          {
+  'windows':          {
     $doc_root = 'C:/ProgramData/nginx/html/'
     $user = 'nobody'
     $log_dir = 'C:/ProgramData/nginx/logs/'
