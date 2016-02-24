@@ -43,9 +43,9 @@ node default {
   # Example:
   #   class { 'my_class': }
   notify { "Hello, my name is ${::hostname}": }
-  if(${::virtual} == "docker")
+  if($::virtual == "docker")
   {
-    notify { "Im a virtual machine ${capitalize(${::virtual})}": }
+    notify { "Im a virtual machine ${capitalize($::virtual)}": }
   }
   #exec {"cowsay 'Welcome to ${::fqdn}!' > /etc/motd" :
   #  creates => "/etc/motd",
