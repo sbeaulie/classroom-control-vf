@@ -56,12 +56,12 @@ node default {
   #  comment => "lab 7.3",
   #  ip => "127.0.0.1"
   #}
-  include users
+  #include users
   #include skeleton
   #include memcached
-  #include nginx
-  class { 'aliases':
-  admin => 'fundamentals'
-  }
-  include users::admins
+  include nginx
+  #admin => 'fundamentals'
+  #class { 'aliases':
+  #}
+  #include users::admins
 }
