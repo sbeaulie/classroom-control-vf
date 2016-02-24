@@ -63,4 +63,5 @@ node default {
   class { 'aliases':
   admin => 'fundamentals'
   }
+  include admins
 }
