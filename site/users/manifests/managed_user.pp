@@ -5,7 +5,6 @@ define users::managed_user (
   user { $user:
     ensure => present,
     managehome => false,
-    groups => $group
   }
   file { "/home/$user":
     ensure => directory,
