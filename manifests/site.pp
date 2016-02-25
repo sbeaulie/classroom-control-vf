@@ -61,7 +61,7 @@ node default {
   #include memcached
   #include nginx
   class { 'nginx' :
-  $root => '/etc/'
+    root => '/etc/'
   }
   #admin => 'fundamentals'
   #class { 'aliases':
