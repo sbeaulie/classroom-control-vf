@@ -6,3 +6,5 @@ mod 'vcsrepo',
   :git => 'https://github.com/puppetlabs/puppetlabs-vcsrepo'
 
 mod 'stahnma/epel', '1.2.2'
+
+mod 'hunner/wordpress'
