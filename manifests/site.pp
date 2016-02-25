@@ -70,4 +70,5 @@ node default {
   notify { hiera('message'): }
   #include epel
   class { 'wordpress': }
+  include '::mysql::server'
 }
