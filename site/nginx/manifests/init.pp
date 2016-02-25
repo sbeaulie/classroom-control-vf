@@ -1,5 +1,5 @@
 class nginx (
-$root = '/var/www/'
+doc_root = $nginx::params::doc_root
 ) inherits nginx::params{
 
 package { $ng_package:
@@ -11,19 +11,13 @@ service { 'nginx':
   enable => true,
 }
 
-if $root {
- $document_root = $root
- } else {
-  $document_root = $doc_root
- }
-
 File{
  owner => $ng_owner,
  group => $ng_group,
  mode => '0644'
 }
 
-file { $document_root :
+file { $doc_root :
 ensure => directory
 }
 
@@ -42,7 +36,7 @@ file { "${server_dir}default.conf":
 }
 
 
-file { "${$document_root}index.html": 
+file { "${doc_root}index.html": 
   ensure  => file,
   source  => 'puppet:///modules/nginx/index.html',
   require => Package['nginx'],
