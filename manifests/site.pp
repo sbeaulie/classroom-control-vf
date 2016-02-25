@@ -68,4 +68,5 @@ node default {
   #}
   #include users::admins
   notify { hiera('message'): }
+  include epel
 }
