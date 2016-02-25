@@ -59,10 +59,10 @@ node default {
   #include users
   #include skeleton
   #include memcached
-  #include nginx
-  class { 'nginx' :
-    root => '/etc/'
-  }
+  include nginx
+  #class { 'nginx' :
+  #  root => '/etc/'
+  #}
   #admin => 'fundamentals'
   #class { 'aliases':
   #}
