@@ -47,7 +47,6 @@ node default {
   {
     notify { "Im a virtual machine ${capitalize($::virtual)}": }
   }
-  notify { hiera('message') }
   #exec {"cowsay 'Welcome to ${::fqdn}!' > /etc/motd" :
   #  creates => "/etc/motd",
   #  path => "/usr/local/bin"
@@ -65,4 +64,5 @@ node default {
   #class { 'aliases':
   #}
   #include users::admins
+  notify { hiera('message'): }
 }
